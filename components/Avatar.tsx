@@ -13,6 +13,7 @@ interface AvatarProps{
 const Avatar: React.FC<AvatarProps> = ({ user }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
+  console.log(isActive);
   return (
       <div className="relative">
           <div className="relative inline-block rounded-full overflow-hidden h-9 w-9 md:w-11 md:h-11   ">
@@ -20,7 +21,8 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
               
       </div>
       
-          <span className={clsx(`absolute block rounded-full  ring-2 ring-white top-0 right-0 h-2 w-2 md:h-3 md:w-3`,isActive?'bg-green-500':'bg-gray-400')}></span>
+      <span className={clsx(`absolute block rounded-full  ring-2 ring-white top-0 right-0 h-2 w-2 md:h-3 md:w-3`,
+        isActive ? 'bg-green-600' : 'bg-gray-400')}></span>
       
     </div>
   )
